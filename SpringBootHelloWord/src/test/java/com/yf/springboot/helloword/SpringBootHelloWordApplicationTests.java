@@ -1,4 +1,4 @@
-package com.yf.springboot.helloword.SpringBootHelloWord;
+package com.yf.springboot.helloword;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
