@@ -1,4 +1,4 @@
-package com.yf.springboot.helloword.SpringBootHelloWord;
+package com.yf.springboot.helloword;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -8,10 +8,10 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.yf.springboot.helloword</groupId>
-	<artifactId>SpringBootHelloWord</artifactId>
+	<groupId>com.yf.springboot</groupId>
+	<artifactId>helloword</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringBootHelloWord</name>
+	<name>helloword</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
