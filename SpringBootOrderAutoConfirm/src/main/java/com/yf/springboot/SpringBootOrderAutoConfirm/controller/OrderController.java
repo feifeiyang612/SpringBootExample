@@ -2,6 +2,7 @@ package com.yf.springboot.SpringBootOrderAutoConfirm.controller;
 
 import com.yf.springboot.SpringBootOrderAutoConfirm.service.DelayedOrder;
 import com.yf.springboot.SpringBootOrderAutoConfirm.service.OrderService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/order")
+@Api(value = "/index/jepCalculate")
 public class OrderController {
 
     @Autowired
