@@ -69,7 +69,7 @@ public class OrderService implements InitializingBean {
         log.info("订单{}创建完成，插入数据库", orderId);
         DelayedOrder order = new DelayedOrder(60, orderId);
         delayedService.add(order);
-//        redisService.addToSet(ORDER_KEY, order);
+        redisService.addToSet(ORDER_KEY, order);
         return order;
     }
 
