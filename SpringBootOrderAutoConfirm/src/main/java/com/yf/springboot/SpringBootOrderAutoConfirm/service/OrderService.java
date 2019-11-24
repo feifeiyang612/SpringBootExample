@@ -6,6 +6,7 @@ import com.yf.springboot.SpringBootOrderAutoConfirm.entity.OrderEntity;
 import com.yf.springboot.SpringBootOrderAutoConfirm.util.ThreadPoolUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @create: 2019-11-19 09:03
  */
 @Service
-public class OrderService {
+public class OrderService implements InitializingBean {
 
     private static Logger log = LoggerFactory.getLogger(OrderService.class);
 
@@ -68,7 +69,7 @@ public class OrderService {
         log.info("订单{}创建完成，插入数据库", orderId);
         DelayedOrder order = new DelayedOrder(60, orderId);
         delayedService.add(order);
-        redisService.addToSet(ORDER_KEY, order);
+//        redisService.addToSet(ORDER_KEY, order);
         return order;
     }
 

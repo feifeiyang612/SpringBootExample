@@ -35,7 +35,9 @@ public abstract class BaseDelayed<T> implements Delayed {
      **/
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(this.getStartTime() - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+        long outQueueTime = unit.convert(this.getStartTime() - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+        System.out.println("订单"+ value + "离出队还有时间：" + outQueueTime);
+        return outQueueTime;
     }
 
     /**
