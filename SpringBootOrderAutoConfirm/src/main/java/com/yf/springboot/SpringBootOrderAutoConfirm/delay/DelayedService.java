@@ -98,7 +98,7 @@ public class DelayedService implements InitializingBean {
     }
 
     @SuppressWarnings("unchecked")
-    public <T, D extends BaseDelayed<?>> D remove(Class<T> clazz, T value) {
+    public <T, D extends BaseDelayed<?>> D remove(Class<T> clazz, String value) {
         if (!start.get()) {
             throw new RuntimeException("DelayedService还没启动");
         }

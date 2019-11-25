@@ -67,7 +67,7 @@ public class OrderService implements InitializingBean {
         orderEntity.setStatus(0);
         orderEntity.setOrderId(orderId);
         log.info("订单{}创建完成，插入数据库", orderId);
-        DelayedOrder order = new DelayedOrder(60, orderId);
+        DelayedOrder order = new DelayedOrder(600, orderId);
         delayedService.add(order);
         redisService.addToSet(ORDER_KEY, order);
         return order;
@@ -83,7 +83,7 @@ public class OrderService implements InitializingBean {
         log.info("订单{}支付完成", orderId);
         DelayedOrder order = delayedService.getDelayed(DelayedOrder.class, orderId);
         if (order != null) {
-            delayedService.remove(DelayedOrder.class, order);
+            delayedService.remove(DelayedOrder.class, orderId);
             redisService.deleteFromSet(ORDER_KEY, order);
         }
         return true;
@@ -99,7 +99,7 @@ public class OrderService implements InitializingBean {
         orderEntity.setOrderId(orderId);
         orderEntity.setStatus(2);
         log.info("修改订单{}为已经取消", orderId);
-        delayedService.remove(DelayedOrder.class, order);
+        delayedService.remove(DelayedOrder.class, orderId);
         redisService.deleteFromSet(ORDER_KEY, order);
         return true;
     }
